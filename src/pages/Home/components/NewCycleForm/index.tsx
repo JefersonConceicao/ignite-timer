@@ -15,15 +15,6 @@ const newCycleValidationSchema = zod.object({
 
 type NewCycleFormData = zod.infer<typeof newCycleValidationSchema>
 
-export interface Cycle {
-  id: string
-  task: string
-  minutes: number
-  startDate: Date
-  interruptedDate?: Date
-  finishedDate?: Date
-}
-
 export function NewCycleForm() {
   const { register, handleSubmit, watch, reset } = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleValidationSchema),
